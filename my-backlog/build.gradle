@@ -1,4 +1,6 @@
 project(':my-backlog') {
-    apply from : "$emmaPlugin"
-    apply plugin : net.sf.mygradlebuild.plugins.JavaProjectDistribution
+	//apply from : "$emmaPlugin"
+	apply plugin : net.sf.mygradlebuild.plugins.JavaProjectDistribution
+
+	version = project.properties.artifactVersion
 }
