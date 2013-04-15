@@ -1,4 +1,7 @@
 //import my-gradle-build stuff
+import net.sf.mybacklog.build.ExportAntBuildFilePlugin
+import net.sf.mybacklog.build.MyBacklogBuild
+
 import net.sf.mygradlebuild.plugins.DefaultContinousBuildPlugin
 import net.sf.mygradlebuild.plugins.EclipseSettingsPlugin
 import net.sf.mygradlebuild.plugins.EnvironmentVariablesPlugin
@@ -10,20 +13,20 @@ import net.sf.mygradlebuild.plugins.SvnPlugin
 
 
 ext {
-    //make sure these files exist
-    jdtInputFile="${buildScripts}/template/for/eclipse/org.eclipse.jdt.core.prefs"
-    pmdSettings="${buildScripts}/template/for/pmd/.pmd"
+	//make sure these files exist
+	jdtInputFile="${buildScripts}/template/for/eclipse/org.eclipse.jdt.core.prefs"
+	pmdSettings="${buildScripts}/template/for/pmd/.pmd"
 
-    distributionDir="$buildDir/distributions"
+	distributionDir="$buildDir/distributions"
 
-    toolsDir="${projectDir}/tools"
+	toolsDir="${projectDir}/tools"
 
-    emmaPlugin="${buildScripts}/plugins/emma.gradle"
+	emmaPlugin="${buildScripts}/plugins/emma.gradle"
 
-    artifactVersion='1.0.1'
+	artifactVersion='1.0.0'
 
-    distributionExcludes = ["excluded-jar.jar"]
-    distributionBasename = 'yourapplication-distribution'
+	distributionExcludes = ["excluded-jar.jar"]
+	distributionBasename = 'mybacklog-distribution'
 }
 
 version = project.properties.artifactVersion //you can put this on distributable projects, if you want to use artifactVersion as a base version
@@ -36,12 +39,12 @@ apply plugin : EnvironmentVariablesPlugin
 apply plugin : EclipseSettingsPlugin
 apply plugin : SvnPlugin
 
-//apply plugin : ExportAntBuildFilePlugin
-//apply plugin : YourApplicationBuildPlugin
+apply plugin : ExportAntBuildFilePlugin
+apply plugin : MyBacklogBuild
 
 reportingSettings { toolsDirectory = "${toolsDir}" }
 
 subprojects {
-    apply plugin : DefaultContinousBuildPlugin
-    forkJdt { jdtInputFile = "${project.properties.jdtInputFile}"  }
+	apply plugin : DefaultContinousBuildPlugin
+	forkJdt { jdtInputFile = "${project.properties.jdtInputFile}"  }
 }
