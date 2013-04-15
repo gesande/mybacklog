@@ -19,7 +19,8 @@ class MyBacklogBuild implements Plugin<Project> {
 			tasks << 'applySvnIgnoreFromGeneratedFile'
 			tasks << 'exportAntBuildFile'
 			tasks << 'my-backlog:continous'
-
+			tasks << 'my-backlog:release'
+			
 			tasks << 'aggregateTestReport'
 			tasks << 'aggregateJDependReport'
 			tasks << 'aggregateCoverageReport'
@@ -32,7 +33,6 @@ class MyBacklogBuild implements Plugin<Project> {
 			group = 'Distribution'
 			description = 'Distribution package for the whole thing including continous build.'
 			buildFile = 'build.gradle'
-			tasks << 'my-backlog:release'
 			tasks << 'makeDistributionPackage'
 			doLast { println "Distribution package ready to be uploaded to the repository." }
 		}

@@ -25,7 +25,7 @@ ext {
 
 	artifactVersion='1.0.0'
 
-	distributionExcludes = ["excluded-jar.jar"]
+	distributionExcludes = ["*-lib.jar"]
 	distributionBasename = 'mybacklog-distribution'
 }
 
