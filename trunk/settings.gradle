@@ -1,1 +1,1 @@
-include 'buildSrc','my-backlog'
+include 'buildSrc','my-backlog','chalkbox-1.0.0','junit-4.10'
