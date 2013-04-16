@@ -1,6 +1,6 @@
 package net.sf.mybacklog;
 
-final class WaitingAsAppender implements AppenderAs<Waiting> {
+public final class WaitingAsAppender implements AppenderAs<Waiting> {
 
     @Override
     public Appender task(final Waiting task) {

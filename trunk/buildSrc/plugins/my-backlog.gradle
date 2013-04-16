@@ -41,7 +41,10 @@ apply plugin : SvnPlugin
 apply plugin : ExportAntBuildFilePlugin
 apply plugin : MyBacklogBuild
 
-reportingSettings { toolsDirectory = "${toolsDir}" }
+reportingSettings {
+	toolsDirectory = "${toolsDir}"
+	onlyAnalyze = 'net.sf.mybacklog'
+}
 
 subprojects {
 	apply plugin : DefaultContinousBuildPlugin

@@ -1,4 +1,12 @@
 project(':chalked-backlog') {
-    apply from : "$emmaPlugin"
-    apply plugin : net.sf.mygradlebuild.plugins.JavaProjectDistribution
+	apply from : "$emmaPlugin"
+	apply plugin : net.sf.mygradlebuild.plugins.JavaProjectDistribution
+
+	version = project.properties.artifactVersion
+
+	dependencies {
+		compile project(':chalkbox-1.0.0')
+		compile project(':my-backlog')
+		testCompile project(':junit-4.10')
+	}
 }

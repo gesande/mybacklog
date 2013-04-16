@@ -1,6 +1,19 @@
-package net.sf.mybacklog;
+package net.sf.mybacklog.chalked;
 
 import net.sf.chalkbox.ChalkBox;
+import net.sf.mybacklog.Backlog;
+import net.sf.mybacklog.BacklogAppender;
+import net.sf.mybacklog.BacklogDisplay;
+import net.sf.mybacklog.BacklogFactory;
+import net.sf.mybacklog.BacklogImpl;
+import net.sf.mybacklog.DefaultBacklogAppender;
+import net.sf.mybacklog.Done;
+import net.sf.mybacklog.InProgress;
+import net.sf.mybacklog.StringBuilderAppender;
+import net.sf.mybacklog.TaskAppender;
+import net.sf.mybacklog.TaskList;
+import net.sf.mybacklog.TaskListFactory;
+import net.sf.mybacklog.Waiting;
 
 public final class BacklogFactoryUsingChalks implements BacklogFactory {
 

@@ -1,17 +1,17 @@
-package net.sf.mybacklog;
+package net.sf.mybacklog.chalked;
 
 import static org.junit.Assert.assertEquals;
 
 import net.sf.mybacklog.Backlog;
 import net.sf.mybacklog.BacklogAppender;
 import net.sf.mybacklog.BacklogDisplay;
-import net.sf.mybacklog.BacklogFactoryUsingChalks;
 import net.sf.mybacklog.Done;
 import net.sf.mybacklog.InProgress;
 import net.sf.mybacklog.SysoutBacklogDisplay;
 import net.sf.mybacklog.Tag;
 import net.sf.mybacklog.TaskFactory;
 import net.sf.mybacklog.Waiting;
+import net.sf.mybacklog.chalked.BacklogFactoryUsingChalks;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -5,6 +5,7 @@ import org.gradle.api.Project
 import org.gradle.api.Task
 import org.gradle.api.tasks.GradleBuild
 
+
 class MyBacklogBuild implements Plugin<Project> {
 
 	@Override
@@ -20,7 +21,9 @@ class MyBacklogBuild implements Plugin<Project> {
 			tasks << 'exportAntBuildFile'
 			tasks << 'my-backlog:continous'
 			tasks << 'my-backlog:dist'
-			
+			tasks << 'chalked-backlog:continous'
+			tasks << 'chalked-backlog:dist'
+
 			tasks << 'aggregateTestReport'
 			tasks << 'aggregateJDependReport'
 			tasks << 'aggregateCoverageReport'
@@ -34,6 +37,7 @@ class MyBacklogBuild implements Plugin<Project> {
 			description = 'Distribution package for the whole thing including continous build.'
 			buildFile = 'build.gradle'
 			tasks << 'my-backlog:release'
+			tasks << 'chalked-backlog:release'
 			tasks << 'makeDistributionPackage'
 			doLast { println "Distribution package ready to be uploaded to the repository." }
 		}
