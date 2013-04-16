@@ -1,6 +1,9 @@
-package net.sf.mybacklog;
+package net.sf.mybacklog.chalked;
 
 import net.sf.chalkbox.Chalk;
+import net.sf.mybacklog.Appendable;
+import net.sf.mybacklog.AppenderAs;
+import net.sf.mybacklog.InProgress;
 
 final class ChalkedInProgress implements Appendable<InProgress> {
     private final Chalk chalk;

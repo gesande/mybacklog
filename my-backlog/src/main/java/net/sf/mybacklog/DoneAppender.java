@@ -1,29 +1,29 @@
 package net.sf.mybacklog;
 
-class DoneAppender implements TaskAppender<Done> {
+public final class DoneAppender implements TaskAppender<Done> {
 
-    private final Appender parent;
-    private final Appendable<Done> doneAppendable;
+	private final Appender parent;
+	private final Appendable<Done> doneAppendable;
 
-    public DoneAppender(final Appender parent,
-            final Appendable<Done> doneAppendable) {
-        this.parent = parent;
-        this.doneAppendable = doneAppendable;
-    }
+	public DoneAppender(final Appender parent,
+			final Appendable<Done> doneAppendable) {
+		this.parent = parent;
+		this.doneAppendable = doneAppendable;
+	}
 
-    @Override
-    public void append(final Done... tasks) {
-        for (final Done task : tasks) {
-            parent().append(appendable().build(task)).newLine();
-        }
-        parent().newLine();
-    }
+	@Override
+	public void append(final Done... tasks) {
+		for (final Done task : tasks) {
+			parent().append(appendable().build(task)).newLine();
+		}
+		parent().newLine();
+	}
 
-    private Appendable<Done> appendable() {
-        return this.doneAppendable;
-    }
+	private Appendable<Done> appendable() {
+		return this.doneAppendable;
+	}
 
-    private Appender parent() {
-        return this.parent;
-    }
+	private Appender parent() {
+		return this.parent;
+	}
 }

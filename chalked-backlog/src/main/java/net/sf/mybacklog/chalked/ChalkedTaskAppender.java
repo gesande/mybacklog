@@ -1,6 +1,17 @@
-package net.sf.mybacklog;
+package net.sf.mybacklog.chalked;
 
 import net.sf.chalkbox.Chalk;
+import net.sf.mybacklog.Appender;
+import net.sf.mybacklog.Done;
+import net.sf.mybacklog.DoneAppender;
+import net.sf.mybacklog.DoneAsAppender;
+import net.sf.mybacklog.InProgress;
+import net.sf.mybacklog.InProgressAppender;
+import net.sf.mybacklog.InProgressAsAppender;
+import net.sf.mybacklog.TaskAppender;
+import net.sf.mybacklog.Waiting;
+import net.sf.mybacklog.WaitingAppender;
+import net.sf.mybacklog.WaitingAsAppender;
 
 @SuppressWarnings("static-method")
 public final class ChalkedTaskAppender {
