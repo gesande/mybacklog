@@ -1,0 +1,8 @@
+DONE
+first release, quick and dirty :)
+introduced chalked-backlog
+
+IN PROGRESS
+
+WAITING
+improve test coverage for my-backlog module
