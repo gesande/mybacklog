@@ -1,9 +1,14 @@
-DONE
-first release, quick and dirty :)
-introduced chalked-backlog
-improve test coverage for my-backlog module
-introduced DefaultBacklogFactory
+my-backlog backlog
 
-IN PROGRESS
+  DONE
 
-WAITING
+  +++ first release, quick and dirty :) +++ #feature
+  +++ introduced chalked-backlog +++ #refactoring
+  +++ improve test coverage for my-backlog module +++ #quality
+  +++ introduced DefaultBacklogFactory +++ #feature
+
+  IN PROGRESS
+
+  WAITING
+
+
