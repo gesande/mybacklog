@@ -2,6 +2,7 @@ DONE
 first release, quick and dirty :)
 introduced chalked-backlog
 improve test coverage for my-backlog module
+introduced DefaultBacklogFactory
 
 IN PROGRESS
 
