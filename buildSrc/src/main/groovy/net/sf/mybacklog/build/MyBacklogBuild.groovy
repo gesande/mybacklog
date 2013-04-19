@@ -19,6 +19,8 @@ class MyBacklogBuild implements Plugin<Project> {
 			tasks << 'eclipseSettings'
 			tasks << 'applySvnIgnoreFromGeneratedFile'
 			tasks << 'exportAntBuildFile'
+			tasks << 'showBacklog'
+			tasks << 'exportBacklog'
 			tasks << 'my-backlog:continous'
 			tasks << 'my-backlog:dist'
 			tasks << 'chalked-backlog:continous'

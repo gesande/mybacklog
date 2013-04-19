@@ -1,2 +1,70 @@
+import static org.gradle.logging.StyledTextOutput.Style
+
+import org.gradle.api.Task
+import org.gradle.logging.StyledTextOutputFactory
+import org.gradle.plugins.ide.eclipse.model.AbstractLibrary
+import org.gradle.plugins.ide.eclipse.model.Classpath
+import org.gradle.plugins.ide.eclipse.model.ClasspathEntry
+import org.gradle.plugins.ide.eclipse.model.internal.FileReferenceFactory
+
+
 project(':backlog') {
+	version = project.properties.artifactVersion
+
+	apply plugin: 'groovy'
+	apply plugin: 'eclipse'
+	apply plugin: 'java'
+
+	dependencies {
+
+		compile gradleApi()
+		groovy localGroovy()
+
+		compile project(':my-backlog')
+	}
+
+	eclipse {
+		classpath {
+			file {
+				whenMerged { Classpath cp ->
+					String gradleHome = gradle.getGradleHomeDir().absolutePath.replace(File.separator, '/')
+					String gradleSrc = "${gradleHome}/src"
+					def entrySourcePath = new FileReferenceFactory().fromPath(gradleSrc)
+					def outputFactory = services.get(StyledTextOutputFactory).create("gradlePlugins.eclipseClasspath")
+					cp.entries.each { ClasspathEntry entry ->
+						if ((entry in AbstractLibrary) && (entry.library.file.name.startsWith('gradle-'))) {
+							entry.sourcePath = entrySourcePath
+							outputFactory.withStyle(Style.Info).println("Forked for patch for ${entry}")
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+task showBacklog (dependsOn: classes) { Task task ->
+	group = 'Backlog'
+	description= 'Shows the backlog.'
+	doLast {
+		javaexec {
+			main = 'net.sf.mybacklog.ShowMyBacklog'
+			classpath  sourceSets.main.output.classesDir
+			classpath configurations.runtime
+		}
+	}
+}
+
+task exportBacklog (dependsOn: classes) { Task task ->
+	group = 'Backlog'
+	description= 'Exports the backlog to backlog.txt.'
+	doLast {
+		def OutputStream backlog = new FileOutputStream("backlog.txt")
+		javaexec {
+			main = 'net.sf.mybacklog.ShowMyBacklog'
+			classpath  sourceSets.main.output.classesDir
+			classpath configurations.runtime
+			standardOutput = backlog
+		}
+	}
 }
