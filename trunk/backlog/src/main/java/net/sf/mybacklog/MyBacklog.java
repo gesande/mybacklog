@@ -2,6 +2,10 @@ package net.sf.mybacklog;
 
 public class MyBacklog extends AbstractBacklogging {
 
+	public static void main(final String[] args) {
+		new MyBacklog().show();
+	}
+
 	public void show() {
 		newBacklog()
 				.title("my-backlog backlog")

@@ -48,7 +48,7 @@ task showBacklog (dependsOn: classes) { Task task ->
 	description= 'Shows the backlog.'
 	doLast {
 		javaexec {
-			main = 'net.sf.mybacklog.ShowMyBacklog'
+			main = 'net.sf.mybacklog.MyBacklog'
 			classpath  sourceSets.main.output.classesDir
 			classpath configurations.runtime
 		}
@@ -61,7 +61,7 @@ task exportBacklog (dependsOn: classes) { Task task ->
 	doLast {
 		def OutputStream backlog = new FileOutputStream("backlog.txt")
 		javaexec {
-			main = 'net.sf.mybacklog.ShowMyBacklog'
+			main = 'net.sf.mybacklog.MyBacklog'
 			classpath  sourceSets.main.output.classesDir
 			classpath configurations.runtime
 			standardOutput = backlog
