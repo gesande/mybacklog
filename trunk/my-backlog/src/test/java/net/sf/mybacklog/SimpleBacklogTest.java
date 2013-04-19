@@ -41,70 +41,7 @@ public class SimpleBacklogTest extends AbstractBacklogging {
 
 	@Override
 	protected Backlog newBacklog() {
-		final Appender appender = new StringBuilderAppender();
-
-		final AppenderAs<Done> appenderAsDone = new DoneAsAppender();
-		final Appendable<Done> doneAppendable = new Appendable<Done>() {
-			@Override
-			public String build(final Done task) {
-				return appenderAsDone.task(task).build();
-			}
-		};
-		final DoneAppender doneAppender = new DoneAppender(appender,
-				doneAppendable);
-
-		final AppenderAs<InProgress> appenderAsInProgress = new InProgressAsAppender();
-		final Appendable<InProgress> inProgressAppendable = new Appendable<InProgress>() {
-			@Override
-			public String build(final InProgress task) {
-				return appenderAsInProgress.task(task).build();
-			}
-		};
-		final InProgressAppender inProgressAppender = new InProgressAppender(
-				appender, inProgressAppendable);
-
-		final AppenderAs<Waiting> appenderAsWaiting = new WaitingAsAppender();
-		final Appendable<Waiting> waitingAppendable = new Appendable<Waiting>() {
-			@Override
-			public String build(final Waiting task) {
-				return appenderAsWaiting.task(task).build();
-			}
-		};
-		final WaitingAppender waitingAppender = new WaitingAppender(appender,
-				waitingAppendable);
-
-		final DefaultBacklogAppender backlogAppender = new DefaultBacklogAppender(
-				appender, doneAppender, inProgressAppender, waitingAppender);
-		final DefaultTaskListFactory taskListFactory = new DefaultTaskListFactory(
-				backlogAppender);
-		return new Backlog() {
-
-			@Override
-			public TaskList<Backlog, Waiting> waiting() {
-				return taskListFactory.forWaiting(this);
-			}
-
-			@Override
-			public Backlog title(final String title) {
-				backlogAppender.title(title);
-				return this;
-			}
-
-			@Override
-			public void show() {
-				display().display(backlogAppender);
-			}
-
-			@Override
-			public TaskList<Backlog, InProgress> inProgress() {
-				return taskListFactory.forInProgress(this);
-			}
-
-			@Override
-			public TaskList<Backlog, Done> done() {
-				return taskListFactory.forDone(this);
-			}
-		};
+		return DefaultBacklogFactory.displayedBy(display()).newBacklog();
 	}
 
 	MyBacklogDisplay display() {
