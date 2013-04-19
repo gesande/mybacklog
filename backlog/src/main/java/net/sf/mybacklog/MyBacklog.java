@@ -1,5 +1,9 @@
 package net.sf.mybacklog;
 
+import static net.sf.mybacklog.MyBacklog.BacklogTag.feature;
+import static net.sf.mybacklog.MyBacklog.BacklogTag.quality;
+import static net.sf.mybacklog.MyBacklog.BacklogTag.refactoring;
+
 public class MyBacklog extends AbstractBacklogging {
 
 	public static void main(final String[] args) {
@@ -11,17 +15,11 @@ public class MyBacklog extends AbstractBacklogging {
 				.title("my-backlog backlog")
 				.done()
 				.title("DONE")
-				.tasks(done("first release, quick and dirty :)", feature()),
-
-						done("introduced chalked-backlog",
-								MyBacklogTag.refactoring),
-
+				.tasks(done("first release, quick and dirty :)", feature),
+						done("introduced chalked-backlog", refactoring),
 						done("improve test coverage for my-backlog module",
-								MyBacklogTag.quality),
-
-						done("introduced DefaultBacklogFactory", feature())
-
-				)
+								quality),
+						done("introduced DefaultBacklogFactory", feature))
 
 				.inProgress().title("IN PROGRESS").noTasks().waiting()
 				.title("WAITING").noTasks().show();
@@ -33,11 +31,7 @@ public class MyBacklog extends AbstractBacklogging {
 				.newBacklog();
 	}
 
-	private static MyBacklogTag feature() {
-		return MyBacklogTag.feature;
-	}
-
-	enum MyBacklogTag implements Tag {
+	public enum BacklogTag implements Tag {
 		refactoring, quality, feature
 	}
 }
