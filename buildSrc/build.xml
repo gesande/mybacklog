@@ -28,6 +28,11 @@
 			<arg value="exportAntBuildFile" />
 		</exec>
 	</target>
+	<target name="check">
+		<exec executable="${gradle.executable}" dir=".">
+			<arg value="check" />
+		</exec>
+	</target>
 	<target name="tasks">
 		<exec executable="${gradle.executable}" dir=".">
 			<arg value="tasks" />
