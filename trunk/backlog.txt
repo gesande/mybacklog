@@ -7,9 +7,13 @@ my-backlog backlog
   +++ improve test coverage for my-backlog module +++ #quality
   +++ introduced DefaultBacklogFactory +++ #feature
   +++ making DefaultBacklogFactory accessible to public +++ #feature
+  +++ started work for version 1.0.3 +++ #new-version
+  +++ provide tag through AbstractBacklogging +++ #feature
 
   IN PROGRESS
 
   WAITING
+
+  --- start work for version 1.0.4 --- #new-version
 
 

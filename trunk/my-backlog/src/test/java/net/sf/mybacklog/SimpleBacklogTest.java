@@ -26,7 +26,7 @@ public class SimpleBacklogTest extends AbstractBacklogging {
 				.tasks(inProgress("second task", MyTag.second))
 
 				.waiting().title("waiting:")
-				.tasks(waiting("third task", MyTag.third))
+				.tasks(waiting("third task", tag("third")))
 
 				.show();
 
@@ -36,7 +36,7 @@ public class SimpleBacklogTest extends AbstractBacklogging {
 	}
 
 	enum MyTag implements Tag {
-		first, second, third
+		first, second
 	}
 
 	@Override
