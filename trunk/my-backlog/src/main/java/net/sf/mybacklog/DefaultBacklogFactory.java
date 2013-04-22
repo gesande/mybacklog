@@ -1,6 +1,6 @@
 package net.sf.mybacklog;
 
-class DefaultBacklogFactory implements BacklogFactory {
+public final class DefaultBacklogFactory implements BacklogFactory {
 	private final BacklogDisplay display;
 
 	private DefaultBacklogFactory(final BacklogDisplay display) {

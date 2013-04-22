@@ -6,6 +6,7 @@ my-backlog backlog
   +++ introduced chalked-backlog +++ #refactoring
   +++ improve test coverage for my-backlog module +++ #quality
   +++ introduced DefaultBacklogFactory +++ #feature
+  +++ making DefaultBacklogFactory accessible to public +++ #feature
 
   IN PROGRESS
 
