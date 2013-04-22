@@ -19,7 +19,9 @@ public class MyBacklog extends AbstractBacklogging {
 						done("introduced chalked-backlog", refactoring),
 						done("improve test coverage for my-backlog module",
 								quality),
-						done("introduced DefaultBacklogFactory", feature))
+						done("introduced DefaultBacklogFactory", feature),
+						done("making DefaultBacklogFactory accessible to public",
+								feature))
 
 				.inProgress().title("IN PROGRESS").noTasks().waiting()
 				.title("WAITING").noTasks().show();
