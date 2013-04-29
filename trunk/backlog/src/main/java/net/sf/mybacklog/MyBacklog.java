@@ -21,7 +21,10 @@ public class MyBacklog extends AbstractBacklogging {
 								feature()),
 						done("started work for version 1.0.3", newVersion()),
 						done("provide tag through AbstractBacklogging",
-								feature()))
+								feature()),
+						done("applied my-gradle-build-1.0.3", feature())
+
+				)
 
 				.inProgress().title("IN PROGRESS").noTasks().
 
