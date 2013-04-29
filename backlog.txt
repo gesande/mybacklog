@@ -9,6 +9,7 @@ my-backlog backlog
   +++ making DefaultBacklogFactory accessible to public +++ #feature
   +++ started work for version 1.0.3 +++ #new-version
   +++ provide tag through AbstractBacklogging +++ #feature
+  +++ applied my-gradle-build-1.0.3 +++ #feature
 
   IN PROGRESS
 
